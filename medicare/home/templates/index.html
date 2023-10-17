@@ -1,0 +1,38 @@
+<header>
+    <h1>Medicare</h1>
+    <nav>
+        <a href="#join-us">Join Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div>
+</div>
+
+<div id="join-us">
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Sign in">
+    </form>
+    
+    <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Sign up">
+    </form>
+</div>
+
+<div id="contact">
+    <form>
+        <input type="email" name="email" placeholder="Email">
+        <textarea placeholder="Your message"></textarea>
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+<footer>
+</footer>
