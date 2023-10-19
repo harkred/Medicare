@@ -4,4 +4,27 @@
 
 <a href="{% url 'home:index' %}" >Logout</a>
 
-<a href="#">Add Medicine</a>
+<a href="{% url 'medicine:add_med' %}">Add Medicine</a>
+
+<h3>Your Medicines</h3>
+    
+<table border="1">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medicine in medicines %}
+            <tr>
+            <td>{{ medicine.med_name }}</td>
+            <td>{{ medicine.med_dosage }}</td>
+            <td>{{medicine.med_frequency}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    
+    
