@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-
+from medicine.models import Medicine
 # Create your views here.
 def user_index_view(request):
     context = {
-        "name": request.user.name
+        "name": request.user.name,
+        "medicines": Medicine.objects.filter(med_id=request.user)
     }
     return render(request, "user_index.html", context)
 
