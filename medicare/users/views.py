@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from users.models import CustomUser
+from django.contrib.auth import login, logout, authenticate
+
 # Create your views here.
 def register_view(request):
     if request.method == "POST":
@@ -8,4 +10,12 @@ def register_view(request):
     return redirect("home:index")
 
 def login_view(request):
-    pass
+    if request.method == "POST":
+        user = authenticate(email=request.POST["email"], password=request.POST["password"])
+
+        if user is not None:
+            login(request, user)
+            context = {
+                "name": user.name
+            }
+            return redirect("user_page:user_index")
