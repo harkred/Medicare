@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Custom Apps
     "users.apps.UsersConfig",
-    "home.apps.HomeConfig"
+    "home.apps.HomeConfig",
+    "medicine.apps.MedicineConfig",
+    "user_page.apps.UserPageConfig"
 ]
 
 MIDDLEWARE = [
