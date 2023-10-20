@@ -2,9 +2,11 @@
 
 <h1>Welcom {{ name }}</h1>
 
-<a href="{% url 'home:index' %}" >Logout</a>
+<a href="{% url 'user_page:logout' %}" >Logout</a>
 
 <a href="{% url 'medicine:add_med' %}">Add Medicine</a>
+
+<a href="{% url 'medicine:edit_med' %}">Edit Medicines</a>
 
 <h3>Your Medicines</h3>
     

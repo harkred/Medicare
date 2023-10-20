@@ -1,0 +1,21 @@
+<h2>Edit your medicines info</h2>
+
+{% for medicine in medicines %}
+    <form action="{% url 'medicine:edit_med_func' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="mid" value="{{ medicine.id }}">
+
+        <label for="med_name">Name of the Medicine</label>
+        <input type="text" name="med_name" placeholder="Name" required value="{{ medicine.med_name }}">
+
+        <label for="med_dosage">How much do you wanna take that medicine? (Eg: 100ml)</label>
+        <input type="text" name="med_dosage" placeholder="Dosage" required value="{{ medicine.med_dosage }}">
+
+        <label for="med_frequency">How often do you wanna take that medicine? (Eg: 1/day)</label>
+        <input type="text" name="med_frequency" placeholder="Frequency" required value="{{ medicine.med_frequency }}">
+        
+        <input type="submit" value="Edit medicine info">
+    </form>
+{% endfor %}
+
+<a href="{% url 'user_page:user_index' %}">Go Back</a>
