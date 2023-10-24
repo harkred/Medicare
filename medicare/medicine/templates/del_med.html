@@ -1,0 +1,26 @@
+<h2>Delete your medicines info</h2>
+<table border="1">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medicine in medicines %}
+            <tr>
+            <form action="{% url 'medicine:del_med_func' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="mid" value="{{ medicine.id }}">
+                <td>{{ medicine.med_name }}</td>
+                <td>{{ medicine.med_dosage }}</td>
+                <td>{{medicine.med_frequency}}</td>
+                <td><input type="submit" value="Delete record"></td>
+            </form>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'user_page:user_index' %}">Go Back</a>
