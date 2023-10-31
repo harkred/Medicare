@@ -2,14 +2,18 @@
 
 <h1>Welcom {{ name }}</h1>
 
+<a href="{% url 'user_page:edit_profile' %}">Edit Profile</a>
+
 <a href="{% url 'user_page:logout' %}" >Logout</a>
 
 <a href="{% url 'medicine:add_med' %}">Add Medicine</a>
 
 <a href="{% url 'medicine:edit_med' %}">Edit Medicines</a>
 
+<a href="{% url 'medicine:del_med' %}">Delete record</a>
+
 <h3>Your Medicines</h3>
-    
+
 <table border="1">
     <thead>
         <tr>

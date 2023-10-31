@@ -37,3 +37,18 @@ def edit_med_func(request):
     
 def edit_med_success_view(request):
     return render(request, "edit_med_success.html")
+
+def del_med_view(request):
+    medicines = Medicine.objects.filter(med_id=request.user)
+    context = {
+        "medicines": medicines
+    }
+    return render(request, "del_med.html", context)
+
+def del_med_func(request):
+    if request.method == "POST":
+        Medicine.objects.filter(id=request.POST["mid"], med_id=request.user).delete()
+        return redirect("medicine:del_med_success")
+
+def del_med_success_view(request):
+    return render(request, "del_med_success.html")
