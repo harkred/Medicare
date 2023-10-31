@@ -2,6 +2,8 @@
 
 <h1>Welcom {{ name }}</h1>
 
+<a href="{% url 'user_page:edit_profile' %}">Edit Profile</a>
+
 <a href="{% url 'user_page:logout' %}" >Logout</a>
 
 <a href="{% url 'medicine:add_med' %}">Add Medicine</a>

@@ -1,0 +1,11 @@
+{% if err %}
+    <h3>{{ err }}</h3>
+{% endif %}
+<form action="{% url 'user_page:edit_profile_func' %}" method="post">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Email" value="{{ email }}" required>
+    <input type="text" name="name" placeholder="Name" value="{{ name }}" required>
+    <input type="submit" value="Edit Profile">
+</form>
+<a href="{% url 'user_page:change_password' %}">Change Password</a>
+<a href="{% url 'user_page:user_index' %}">Go Back</a>
