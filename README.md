@@ -10,10 +10,13 @@ This section assumes that you have python 3.10 or above already installed on you
 To install necessary dependencies, the python virtual environmnet specific to this project must be activated. This virtual environment has all the necessary dependencies that is needed to run this program.
 
 To activate the the virtual environment, first traverse to medicare directory via `cd medicare` command. Then use the following command to activate your virtual environment.
+
 `.\Scripts\activate`
 
 After activating the virtual environment, all the necessary dependencies will be installed on your local machine.
 
 To run this website on your local machine, enter the following command.
+
 `python manage.py runserver`
+
 This should provide you with a localhost server link where the website is being hosted on your machine. Click on it and enjoy messing around with the website.
