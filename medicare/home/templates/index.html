@@ -1,9 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
 <header>
     <h1>Medicare</h1>
-    <nav>
-        <a href="#join-us">Join Us</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <h2>Welcome to Medicare. A place to keep track of your medical needs!</h2>
 </header>
 
 <div>
@@ -15,6 +14,7 @@
     {% endif %}
     
     <form action="{% url 'users:login' %}" method="post">
+        <h3>Already have an account? Sign In!</h3>
         {% csrf_token %}
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
@@ -22,6 +22,7 @@
     </form>
     
     <form action="{% url 'users:register' %}" method="post">
+        <h3>Don't have an account? Create one!</h3>
         {% csrf_token %}
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="name" placeholder="Name" required>
@@ -32,6 +33,7 @@
 
 <div id="contact">
     <form>
+        <h3>Have any questions or concerns? Please send us an email!</h3>
         <input type="email" name="email" placeholder="Email">
         <textarea placeholder="Your message"></textarea>
         <input type="submit" value="Send">
@@ -40,3 +42,4 @@
 
 <footer>
 </footer>
+{% endblock %}
