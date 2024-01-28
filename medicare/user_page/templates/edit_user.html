@@ -1,11 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
 {% if err %}
     <h3>{{ err }}</h3>
 {% endif %}
-<form action="{% url 'user_page:edit_profile_func' %}" method="post">
+<form action="{% url 'user_page:edit_profile_func' %}" method="post" class="d-flex flex-column justify-content-around">
     {% csrf_token %}
-    <input type="email" name="email" placeholder="Email" value="{{ email }}" required>
-    <input type="text" name="name" placeholder="Name" value="{{ name }}" required>
-    <input type="submit" value="Edit Profile">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="Email" value="{{ email }}" required class="m-1">
+    <label>Name</label>
+    <input type="text" name="name" placeholder="Name" value="{{ name }}" required class="m-1">
+    <input type="submit" value="Edit Profile" class="m-2">
 </form>
-<a href="{% url 'user_page:change_password' %}">Change Password</a>
-<a href="{% url 'user_page:user_index' %}">Go Back</a>
+<footer>
+<a href="{% url 'user_page:change_password' %}" class="m-2">Change Password</a>
+<a href="{% url 'user_page:user_index' %}" class="m-2">Go Back</a>
+</footer>
+</div>
+{% endblock %}

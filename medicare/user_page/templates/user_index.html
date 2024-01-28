@@ -1,28 +1,36 @@
-<h1>Medicare</h1>
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex flex-column" id="user-index">
+<header>
+    <h3>Medicare</h3>
 
-<h1>Welcom {{ name }}</h1>
+    <h2>Welcome {{ name }}</h2>
+</header>
 
-<a href="{% url 'user_page:edit_profile' %}">Edit Profile</a>
+<nav class="d-flex flex-row align-items-around m-2">
+<a href="{% url 'user_page:edit_profile' %}" class="m-2 p-2 border">Edit Profile</a>
 
-<a href="{% url 'user_page:logout' %}" >Logout</a>
+<a href="{% url 'user_page:logout' %}" class="m-2 p-2 border">Logout</a>
 
-<a href="{% url 'medicine:add_med' %}">Add Medicine</a>
+<a href="{% url 'medicine:add_med' %}" class="m-2 p-2 border">Add Medicine</a>
 
-<a href="{% url 'medicine:edit_med' %}">Edit Medicines</a>
+<a href="{% url 'medicine:edit_med' %}" class="m-2 p-2 border">Edit Medicines</a>
 
-<a href="{% url 'medicine:del_med' %}">Delete record</a>
+<a href="{% url 'medicine:del_med' %}" class="m-2 p-2 border">Delete record</a>
+</nav>
 
+<div>
 <h3>Your Medicines</h3>
 
-<table border="1">
-    <thead>
+<table class="table m-2">
+    <thead scope="col">
         <tr>
           <th>Name</th>
           <th>Dosage</th>
           <th>Frequency</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody scope="row">
         {% for medicine in medicines %}
             <tr>
             <td>{{ medicine.med_name }}</td>
@@ -32,5 +40,6 @@
         {% endfor %}
     </tbody>
 </table>
-    
-    
+</div>
+</div>
+{% endblock %}

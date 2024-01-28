@@ -1,17 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
 <h2>Add your medicines</h2>
 
 <form action="{% url 'medicine:add_med_func' %}" method="post">
     {% csrf_token %}
-    <label for="med_name">Name of the Medicine</label>
-    <input type="text" name="med_name" placeholder="Name" required>
-
-    <label for="med_dosage">How much do you wanna take that medicine? (Eg: 100ml)</label>
-    <input type="text" name="med_dosage" placeholder="Dosage" required>
-
-    <label for="med_frequency">How often do you wanna take that medicine? (Eg: 1/day)</label>
-    <input type="text" name="med_frequency" placeholder="Frequency" required>
+    <table class="table">
+        <thead scope="col">
+            <tr>
+            <th><label for="med_name">Name of the Medicine</label></th>
+            <th><label for="med_dosage">How much do you wanna take that medicine? (Eg: 100ml)</label></th>
+            <th><label for="med_frequency">How often do you wanna take that medicine? (Eg: 1/day)</label></th>
+            </tr>
+        </thead>
     
+        <tbody scope="row">
+            <tr>
+            <th><input type="text" name="med_name" placeholder="Name" required></th>
+            <th><input type="text" name="med_dosage" placeholder="Dosage" required></th>
+            <th><input type="text" name="med_frequency" placeholder="Frequency" required></th>
+            </tr>
+        </tbody>
+    </table>
     <input type="submit" value="Add medicine">
 </form>
 
 <a href="{% url 'user_page:user_index' %}">Go Back</a>
+</div>
+{% endblock %}

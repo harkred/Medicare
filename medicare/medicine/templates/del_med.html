@@ -1,13 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
 <h2>Delete your medicines info</h2>
-<table border="1">
-    <thead>
+<table class="table">
+    <thead scope="col">
         <tr>
           <th>Name</th>
           <th>Dosage</th>
           <th>Frequency</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody scope="row">
         {% for medicine in medicines %}
             <tr>
             <form action="{% url 'medicine:del_med_func' %}" method="post">
@@ -24,3 +27,5 @@
 </table>
 
 <a href="{% url 'user_page:user_index' %}">Go Back</a>
+</div>
+{% endblock %}
